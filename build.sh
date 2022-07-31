@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-extension=${PWD##*/}
-dir=~/desktop/$extension
+extension_path=$(dirname $(realpath "$0"))
+extension_folder=$(basename "$extension_path")
+target=~/desktop/$extension_folder.zip
 
-cd src
-zip -r $dir.zip .
+cd $extension_path/src
+zip -r $target .
